@@ -25,7 +25,7 @@ function compareCropWithField(crop,field){
     score-=3;
     issue.push('lowtemp')
   } else {
-    score = fitCurve(crop.mintemp,crop.optmintemp,crop.optmaxtemp,crop.maxtemp,(field.maxtemp+field.mintemp)/2);
+    score += fitCurve(crop.mintemp,crop.optmintemp,crop.optmaxtemp,crop.maxtemp,(field.maxtemp+field.mintemp)/2);
   }
 
   if (crop.maxrain<field.maxrain){
@@ -35,7 +35,7 @@ function compareCropWithField(crop,field){
     score-=3;
     issue.push('lowrain')
   } else {
-    score = fitCurve(crop.minrain,crop.optminrain,crop.optmaxrain,crop.maxrain,(field.maxrain+field.minrain)/2);
+    score += fitCurve(crop.minrain,crop.optminrain,crop.optmaxrain,crop.maxrain,(field.maxrain+field.minrain)/2);
   }
 
   if (crop.maxph<field.maxph){
@@ -45,7 +45,7 @@ function compareCropWithField(crop,field){
     score-=3;
     issue.push('lowph')
   } else {
-    score = fitCurve(crop.minph,crop.optminph,crop.optmaxph,crop.maxph,(field.maxph+field.minph)/2);
+    score += fitCurve(crop.minph,crop.optminph,crop.optmaxph,crop.maxph,(field.maxph+field.minph)/2);
   }
 
   return {score,issue};
