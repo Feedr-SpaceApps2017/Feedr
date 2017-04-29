@@ -34,7 +34,7 @@ app.get('/cropcheck', function(request, response) {
     assert.equal(err, null);
     callback(docs);
   }));
-  responce.send('Return');
+  response.send('Return');
 });
 
 app.post('/addcrop', function(request, response) {
