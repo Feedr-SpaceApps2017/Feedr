@@ -18,8 +18,8 @@ app.use(bodyParser.json());
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-const MongoClient = require('mongodb').MongoClient
-var db
+const MongoClient = require('mongodb').MongoClient;
+var db;
 
 app.get('/', function(request, response) {
   response.render('pages/index');
@@ -123,7 +123,7 @@ app.listen(app.get('port'), function() {
   // Use connect method to connect to the server
   MongoClient.connect(url, function(err, database) {
     assert.equal(null, err);
-    db = database
+    db = database;
     console.log("Connected successfully to server");
   });
 
