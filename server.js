@@ -29,8 +29,8 @@ app.get('/addcrop', function(request, response) {
 });
 
 app.post('/addcrop', function(request, response) {
-  engine.addCrop('testData');
-  response.send('<p>Recived new crop data : '+request.body.cropname+' </p>');
+  db.collection('crops').save(request.body)
+  //response.send('<p>Recived new crop data : '+request.body.cropname+' </p>');
 });
 
 app.get('/input', function(request, response) {
