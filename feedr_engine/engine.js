@@ -57,5 +57,5 @@ function findBestCrop(farm){
 }
 
 var exports = module.exports = {
-  findBestCrop;
+  findBestCrop
 };
