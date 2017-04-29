@@ -76,7 +76,7 @@ app.listen(app.get('port'), function() {
   var url = 'mongodb://admin:admin@ds123351.mlab.com:23351/heroku_s50rzslz';
 
   // Use connect method to connect to the server
-  MongoClient.connect(url, function(err, db) {
+  MongoClient.connect(url, function(err, database) {
     assert.equal(null, err);
     db = database
     console.log("Connected successfully to server");
