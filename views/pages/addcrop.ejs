@@ -1,57 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <% include ../partials/header.ejs %>
 </head>
 
 <body>
-<h1>Add new crop</h1>
-<form action="/addcrop" method="post">
-        <fieldset>
-            <label>Crop Name:</label>
-            <input type="text" name="cropname" placeholder="Enter the crops name" />
 
-             <label>Minimum Temperature</label>
-            <input type="number" name="mintemp" placeholder="" />
+    <% include ../partials/nav.ejs %>
 
-             <label>Maximum Temperature</label>
-            <input type="number" name="maxtemp" placeholder="" />
+<div class="container">
+    <h1>Add new crop</h1>
+    <form action="/addcrop" method="post">
+            <fieldset>
+                <label>Crop Name:</label>
+                <input type="text" name="cropname" placeholder="Enter the crops name" />
 
-             <label>Opt Min Temperature</label>
-            <input type="number" name="optmintemp" placeholder="" />
+                 <label>Minimum Temperature</label>
+                <input type="number" name="mintemp" placeholder="" />
 
-             <label>Opt Max Temperature</label>
-            <input type="number" name="optmaxtemp" placeholder="" />
+                 <label>Maximum Temperature</label>
+                <input type="number" name="maxtemp" placeholder="" />
 
-            <p></p>
+                 <label>Opt Min Temperature</label>
+                <input type="number" name="optmintemp" placeholder="" />
 
-             <label>Minimum Rainfall</label>
-            <input type="number" name="minrain" placeholder="" />
+                 <label>Opt Max Temperature</label>
+                <input type="number" name="optmaxtemp" placeholder="" />
 
-             <label>Maximum Rainfall</label>
-            <input type="number" name="maxrain" placeholder="" />
+                <p></p>
 
-             <label>Opt Min Rainfall</label>
-            <input type="number" name="optminrain" placeholder="" />
+                 <label>Minimum Rainfall</label>
+                <input type="number" name="minrain" placeholder="" />
 
-             <label>Opt Max Rainfall</label>
-            <input type="number" name="optmaxrain" placeholder="" />
+                 <label>Maximum Rainfall</label>
+                <input type="number" name="maxrain" placeholder="" />
 
-            <p></p>
+                 <label>Opt Min Rainfall</label>
+                <input type="number" name="optminrain" placeholder="" />
 
-            <label>Minimum ph</label>
-           <input type="number" name="minph" placeholder="" />
+                 <label>Opt Max Rainfall</label>
+                <input type="number" name="optmaxrain" placeholder="" />
 
-            <label>Maximum ph</label>
-           <input type="number" name="maxph" placeholder="" />
+                <p></p>
 
-            <label>Opt Min ph</label>
-           <input type="number" name="optminph" placeholder="" />
+                <label>Minimum ph</label>
+               <input type="number" name="minph" placeholder="" />
 
-            <label>Opt Max ph</label>
-           <input type="number" name="optmaxph" placeholder="" />
+                <label>Maximum ph</label>
+               <input type="number" name="maxph" placeholder="" />
 
-            <input type="submit" value="Submit" />
-        </fieldset>
-    </form>
+                <label>Opt Min ph</label>
+               <input type="number" name="optminph" placeholder="" />
+
+                <label>Opt Max ph</label>
+               <input type="number" name="optmaxph" placeholder="" />
+
+                <input type="submit" value="Submit" />
+            </fieldset>
+        </form>
+</div>
 </body>
+</html>
