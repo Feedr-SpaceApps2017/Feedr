@@ -68,7 +68,7 @@ app.get('/loc', function(request, response) {
 });
 
 app.get('/ai', function(request, response) {
-	result = ai.predictData()
+	let result = ai.predictData()
  	response.render('pages/ai', {data: result});
 });
 

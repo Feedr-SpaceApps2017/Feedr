@@ -9,9 +9,15 @@
 <% include ../partials/nav.ejs %>
 
 <div class="container">
-	<% console.log(data) %>
-	<p> <% data %> </p>
-</div>
+	<p> <%= data %> </p>
+
+	<form action="/ai" method="POST">
+	    <input type="text" placeholder="name" name="name">
+	    <input type="text" placeholder="name" name="name">
+	    <button type="submit">Submit</button>
+	 </form>
+
+ </div>
 
 </body>
 </html>
