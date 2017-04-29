@@ -130,6 +130,6 @@ app.listen(app.get('port'), function() {
   engine.findBestCrop('',db.collection('crops').find().toArray(function(err, docs) {
       assert.equal(err, null);
       callback(docs);
-    }););
+    }));
 
 });
