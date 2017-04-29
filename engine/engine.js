@@ -33,20 +33,6 @@ function newFarm(name){
 
 }
 
-function connectToDB(){
-  var MongoClient = require('mongodb').MongoClient
-  var assert = require('assert');
-
-  // Connection URL
-  //var url = 'mongodb://ds123351.mlab.com:23351/heroku_s50rzslz';
-  var url = 'mongodb://admin:admin@ds123351.mlab.com:23351/heroku_s50rzslz';
-
-  // Use connect method to connect to the server
-  MongoClient.connect(url, function(err, db) {
-    assert.equal(null, err);
-    console.log("Connected successfully to server");
-  });
-  //db.close();
+function addCrop(cropData){
+  console.log(cropData);
 }
-
-connectToDB()
