@@ -1,12 +1,21 @@
+<<<<<<< HEAD
 var express = require('express');
 var app = express();
 var cool = require('cool-ascii-faces');
 var engine = require('./feedr_engine/engine.js');
 var bodyParser = require('body-parser');
+=======
+const express = require('express');
+const app = express();
+const bodyParser= require('body-parser')
+const cool = require('cool-ascii-faces');
+const engine = require('./feedr_engine/engine.js');
+>>>>>>> origin/master
 
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({extended: true}))
 
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
@@ -27,6 +36,7 @@ app.get('/addcrop', function(request, response) {
 });
 
 app.post('/addcrop', function(request, response) {
+  console.log(request);
   engine.addCrop('testData');
   response.render('<p>Recived new crop data : '+request.body.cropname+' </p>');
 });
@@ -35,6 +45,16 @@ app.get('/input', function(request, response) {
   //redirect input here
   response.send('<p>Was sent message: '+response+'</p>');
 });
+
+app.post('/db', (request, response) => {
+  console.log(request.body)
+  db.collection('test').save(request.body, (err, result) => {
+    if (err) return console.log(err)
+
+    console.log('saved to database')
+    response.redirect('/db')
+  })
+})
 
 app.get('/db', function(request, response) {
   MongoClient.connect('mongodb://admin:admin@ds123351.mlab.com:23351/heroku_s50rzslz', (err, database) => {
