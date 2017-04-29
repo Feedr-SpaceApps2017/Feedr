@@ -92,7 +92,7 @@ app.get('/ai', function(request, response) {
 
 	// Create decision tree and train model:
 	var dt = new DecisionTree(training_data, class_name, features);
-	
+
   var predicted_class = dt.predict({
   	color: "blue",
   	shape: "hexagon"
@@ -126,6 +126,6 @@ app.listen(app.get('port'), function() {
     console.log("Connected successfully to server");
   });
 
-  findBestCrop();
+  engine.findBestCrop();
 
 });
