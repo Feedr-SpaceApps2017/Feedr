@@ -30,7 +30,7 @@ app.get('/addcrop', function(request, response) {
 
 app.post('/addcrop', function(request, response) {
   db.collection('crops').save(request.body)
-  //response.send('<p>Recived new crop data : '+request.body.cropname+' </p>');
+  response.send('<p>Recived new crop data for :'+request.body.cropname+' </p>');
 });
 
 app.get('/input', function(request, response) {
