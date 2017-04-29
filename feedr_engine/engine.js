@@ -46,12 +46,14 @@ function compareCropWithField(crop,field){
   } else {
     score = fitCurve(crop.minph,crop.optminph,crop.optmaxph,crop.maxph,(field.maxph+field.minph)/2);
   }
-  
+
   return {score,issue};
 }
 
 function findBestCrop(farm,crops){
   scores = new Array(0);
+
+  
 
 
   console.log(crops);

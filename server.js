@@ -31,9 +31,9 @@ app.get('/addcrop', function(request, response) {
 
 app.get('/cropcheck', function(request, response) {
   //This is throwing errors for some reason
-  engine.findBestCrop('',db.collection('crops').find().toArray(function(err, data) {
-    return data;
-  }));
+  db.collection('crops').find().toArray(function(err, data) {
+    engine.findBestCrop('',data);
+  });
   response.send('Return');
 });
 
