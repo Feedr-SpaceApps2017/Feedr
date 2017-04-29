@@ -2,11 +2,11 @@
 function fitCurve(a,b,c,d, val){
   //abs_min, opt_min, opt_max, abs_max in order, value
   if(val>=a&&val<b){
-    ans = (1/(math.sqrt(2)*(b-a)))*(val-a);
+    ans = (1/(Maths.sqrt(2)*(b-a)))*(val-a);
   } else if(val>=b&&val<c){
-    ans = 1-((math.sqrt(2)-1)/(math.sqrt(2)*(c-b)^2))*(2*val-b-c)^2;
+    ans = 1-((Maths.sqrt(2)-1)/(Maths.sqrt(2)*(c-b)^2))*(2*val-b-c)^2;
   } else if(val>=c&&val<d){
-    ans = (1/(math.sqrt(2)*(c-d)))*(val-d);
+    ans = (1/(Maths.sqrt(2)*(c-d)))*(val-d);
   } else{
     ans = 0;
   }
