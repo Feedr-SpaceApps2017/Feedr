@@ -46,7 +46,7 @@ function compareCropWithField(crop,field){
   return {score,issue};
 }
 
-function findBestCrop(farm){
+function findBestCrop(farm,db){
   scores = new Array(0);
   var crops = db.collection('crops').find().toArray(function(err, docs) {
       assert.equal(err, null);

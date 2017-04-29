@@ -126,6 +126,6 @@ app.listen(app.get('port'), function() {
     console.log("Connected successfully to server");
   });
 
-  engine.findBestCrop();
+  engine.findBestCrop('',db);
 
 });
