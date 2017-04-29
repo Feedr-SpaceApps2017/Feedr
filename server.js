@@ -10,6 +10,9 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
+const MongoClient = require('mongodb').MongoClient
+var db
+
 app.get('/', function(request, response) {
   response.render('pages/index');
 });
@@ -17,6 +20,20 @@ app.get('/', function(request, response) {
 app.get('/input', function(request, response) {
   //redirect input here
   response.send('<p>Was sent message: '+response+'</p>');
+});
+
+app.get('/db', function(request, response) {
+  MongoClient.connect('mongodb://admin:admin@ds123351.mlab.com:23351/heroku_s50rzslz', (err, database) => {
+  	if (err) return console.log(err)
+
+  	db = database
+  	db.collection('test').find().toArray(function(err, results) {
+  		console.log(results)
+		})
+
+	})
+
+	response.send(cool());
 });
 
 app.get('/cool', function(request, response) {
