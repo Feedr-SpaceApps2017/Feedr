@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <% include ../partials/header.ejs %>
 </head>
-
 <body>
-<h1>Add new crop</h1>
-<form action="/addcrop" method="post">
-        <fieldset>
-            <label for="name">Crop Name:</label>
-            <input type="text" name="cropname" placeholder="Enter the crops name" />
+    <% include ../partials/nav.ejs %>
 
-            <label for="email">Minimum Temperature</label>
-            <input type="number" name="mintemp" placeholder="" />
+    <div class="container">
+    <h1>Add new crop</h1>
+    <form action="/addcrop" method="post">
+            <fieldset>
+                <label for="name">Crop Name:</label>
+                <input type="text" name="cropname" placeholder="Enter the crops name" />
 
-            <label for="email">Maximum Temperature</label>
-            <input type="number" name="maxtemp" placeholder="" />
+                <label for="email">Minimum Temperature</label>
+                <input type="number" name="mintemp" placeholder="" />
 
-            <label for="email">Opt Min Temperature</label>
-            <input type="number" name="optmintemp" placeholder="" />
+                <label for="email">Maximum Temperature</label>
+                <input type="number" name="maxtemp" placeholder="" />
 
-            <label for="email">Opt Max Temperature</label>
-            <input type="number" name="optmaxtemp" placeholder="" />
+                <label for="email">Opt Min Temperature</label>
+                <input type="number" name="optmintemp" placeholder="" />
 
-            <input type="submit" value="Submit" />
-        </fieldset>
-    </form>
+                <label for="email">Opt Max Temperature</label>
+                <input type="number" name="optmaxtemp" placeholder="" />
+
+                <input type="submit" value="Submit" />
+            </fieldset>
+        </form>
+    </div>
 </body>
+</html>
