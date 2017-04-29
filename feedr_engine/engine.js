@@ -56,3 +56,16 @@ function findBestCrop(farm,crops){
 var exports = module.exports = {
   findBestCrop
 };
+
+function fitCurve(a,b,c,d, val){
+  if(val>=a&&val<b){
+    ans = (1/(math.sqrt(2)*(b-a)))*(var-a);
+  } else if(val>=b&&val<c){
+    ans = 1-((math.sqrt(2)-1)/(math.sqrt(2)*(c-b)^2))*(2*val-b-c)^2;
+  } else if(val>=c&&val<d){
+    ans = (1/(math.sqrt(2)*(c-d)))*(var-d);
+  } else{
+    ans = 0;
+  }
+  return {ans};
+}
