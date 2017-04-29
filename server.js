@@ -62,6 +62,10 @@ app.get('/db', function(request, response) {
 	// response.send(cool());
 });
 
+app.get('/loc', function(request, response) {
+ 	response.render('pages/loc');
+});
+
 app.get('/cool', function(request, response) {
   response.send(cool());
 });
