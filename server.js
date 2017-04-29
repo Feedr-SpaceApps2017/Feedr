@@ -16,7 +16,7 @@ app.get('/', function(request, response) {
 
 app.get('/input', function(request, response) {
   //redirect input here
-  responce.send('<p>Was sent message: '+responce+'</p>');
+  responce.send('<p>Was sent message: '+response+'</p>');
 });
 
 app.get('/cool', function(request, response) {
