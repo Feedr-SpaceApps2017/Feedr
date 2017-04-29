@@ -78,6 +78,7 @@ app.listen(app.get('port'), function() {
   // Use connect method to connect to the server
   MongoClient.connect(url, function(err, db) {
     assert.equal(null, err);
+    db = database
     console.log("Connected successfully to server");
   });
 
