@@ -1,32 +1,49 @@
 
 
 function compareCropWithField(crop,field){
+  score = 0;
+  issue = new Array(0);
 
-  if(crop.maxHumid<=field.maxHumid){
-    cropVib.issue.push('highHumid')
-    //Get difference, need to decide how to weight it
-  } else if(crop.minHumid<=field.minHumid) {
-    cropVib.issue.push('lowHumid')
-    //Get difference, need to decide how to weight it
+  //Temperture check
+  if(crop.optmaxtemp<=field.optmaxtemp&&crop.optmintemp<=field.optmintemp){
+    score+=3;
+  } else if (crop.maxtemp<=field.maxtemp&&crop.mintemp<=field.mintemp){
+    score++;
+  } else if (crop.maxtemp<field.maxtemp){
+    score-=3;
+    issue.push('hightemp')
+  } else {
+    score-=3;
+    issue.push('lowtemp')
   }
 
-  if(crop.maxPh<=field.maxPh){
-    cropVib.issue.push('highPh')
-    //Get difference, need to decide how to weight it
-  } else if(crop.minPh<=field.minPh) {
-    cropVib.issue.push('lowPh')
-    //Get difference, need to decide how to weight it
+  //Rainfall check
+  if(crop.optmaxrain<=field.optmaxrain&&crop.optminrain<=field.optminrain){
+    score+=3;
+  } else if (crop.maxrain<=field.maxrain&&crop.minrain<=field.minrain){
+    score++;
+  } else if (crop.maxrain<field.maxrain){
+    score-=3;
+    issue.push('highrain')
+  } else {
+    score-=3;
+    issue.push('lowrain')
   }
 
-  if(crop.maxPh<=field.maxPh){
-    cropVib.issue.push('highPh')
-    //Get difference, need to decide how to weight it
-  } else if(crop.minPh<=field.minPh) {
-    cropVib.issue.push('lowPh')
-    //Get difference, need to decide how to weight it
+  //phfall check
+  if(crop.optmaxph<=field.optmaxph&&crop.optminph<=field.optminph){
+    score+=3;
+  } else if (crop.maxph<=field.maxph&&crop.minph<=field.minph){
+    score++;
+  } else if (crop.maxph<field.maxph){
+    score-=3;
+    issue.push('highph')
+  } else {
+    score-=3;
+    issue.push('lowph')
   }
 
-  return cropVib;
+  return {score,issue};
 }
 
 function newFarm(name){
