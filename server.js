@@ -49,15 +49,61 @@ app.post('/db', (request, response) => {
 })
 
 app.get('/db', function(request, response) {
+  MongoClient.connect('mongodb://admin:admin@ds123351.mlab.com:23351/heroku_s50rzslz', (err, database) => {
+  	if (err) return console.log(err)
+
+  	db = database
   	db.collection('test').find().toArray(function(err, results) {
   		console.log(results)
   		response.render('pages/db', {data: results});
 		});
+
+	})
 	// response.send(cool());
 });
 
 app.get('/loc', function(request, response) {
  	response.render('pages/loc');
+});
+
+app.get('/ai', function(request, response) {
+	var DecisionTree = require('decision-tree');
+	var training_data = [
+  	{"color":"blue", "shape":"square", "liked":false},
+  	{"color":"red", "shape":"square", "liked":false},
+  	{"color":"blue", "shape":"circle", "liked":true},
+  	{"color":"red", "shape":"circle", "liked":true},
+  	{"color":"blue", "shape":"hexagon", "liked":false},
+  	{"color":"red", "shape":"hexagon", "liked":false},
+  	{"color":"yellow", "shape":"hexagon", "liked":true},
+  	{"color":"yellow", "shape":"circle", "liked":true}
+  ];
+
+	var test_data = [
+  	{"color":"blue", "shape":"hexagon", "liked":false},
+  	{"color":"red", "shape":"hexagon", "liked":false},
+  	{"color":"yellow", "shape":"hexagon", "liked":true},
+  	{"color":"yellow", "shape":"circle", "liked":true}
+  ];
+	// Setup Target Class used for prediction:
+  var class_name = "liked";
+  // Setup Features to be used by decision tree:
+	var features = ["color", "shape"];
+
+	// Create decision tree and train model:
+	var dt = new DecisionTree(training_data, class_name, features);
+	
+  var predicted_class = dt.predict({
+  	color: "blue",
+  	shape: "hexagon"
+  });
+  console.log(predicted_class)
+
+  var accuracy = dt.evaluate(test_data);
+  console.log(accuracy)
+	var result = dt
+
+ 	response.render('pages/ai', {data: result});
 });
 
 app.get('/cool', function(request, response) {
@@ -66,6 +112,7 @@ app.get('/cool', function(request, response) {
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
+
   var assert = require('assert');
 
   // Connection URL
