@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var cool = require('cool-ascii-faces');
-var engine = require('/engine/engine');
+var engine = require('/engine');
 
 app.set('port', (process.env.PORT || 5000));
 
