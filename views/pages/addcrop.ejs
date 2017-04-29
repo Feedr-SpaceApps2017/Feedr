@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <% include ../partials/header.ejs %>
 </head>
 
 <body>
-<h1>Add new crop</h1>
-<form action="/addcrop" method="post">
+
+    <% include ../partials/nav.ejs %>
+
+<div class="container">
+    <h1>Add new crop</h1>
+    <form action="/addcrop" method="post">
         <fieldset>
             <label>Crop Name:</label>
             <input type="text" name="cropname" placeholder="Enter the crops name" />
@@ -17,11 +21,11 @@
             <label>Opt Min Temperature</label>
            <input type="text" name="optmintemp" placeholder="" />
 
+           <label>Opt Max Temperature</label>
+          <input type="text" name="optmaxtemp" placeholder="" />
+
              <label>Maximum Temperature</label>
             <input type="text" name="maxtemp" placeholder="" />
-
-             <label>Opt Max Temperature</label>
-            <input type="text" name="optmaxtemp" placeholder="" />
 
             <br></br>
 
@@ -31,11 +35,11 @@
             <label>Opt Min Rainfall</label>
            <input type="text" name="optminrain" placeholder="" />
 
+           <label>Opt Max Rainfall</label>
+          <input type="text" name="optmaxrain" placeholder="" />
+
              <label>Maximum Rainfall</label>
             <input type="text" name="maxrain" placeholder="" />
-
-             <label>Opt Max Rainfall</label>
-            <input type="text" name="optmaxrain" placeholder="" />
 
             <br></br>
 
@@ -45,13 +49,16 @@
            <label>Opt Min ph</label>
           <input type="text" name="optminph" placeholder="" />
 
+          <label>Opt Max ph</label>
+         <input type="text" name="optmaxph" placeholder="" />
+
             <label>Maximum ph</label>
            <input type="text" name="maxph" placeholder="" />
 
-            <label>Opt Max ph</label>
-           <input type="text" name="optmaxph" placeholder="" />
 
             <input type="submit" value="Submit" />
-        </fieldset>
-    </form>
+          </fieldset>
+      </form>
+</div>
 </body>
+</html>
