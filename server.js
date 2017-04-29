@@ -127,9 +127,9 @@ app.listen(app.get('port'), function() {
     console.log("Connected successfully to server");
   });
 
-  engine.findBestCrop('',db.collection('crops').find().toArray(function(err, docs) {
-      assert.equal(err, null);
-      callback(docs);
-    }));
+  //engine.findBestCrop('',db.collection('crops').find().toArray(function(err, docs) {
+    //  assert.equal(err, null);
+      //callback(docs);
+    //}));
 
 });
