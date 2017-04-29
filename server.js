@@ -17,6 +17,10 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
+app.get('/addcrop', function(request, response) {
+  response.render('pages/addcrop');
+});
+
 app.get('/input', function(request, response) {
   //redirect input here
   response.send('<p>Was sent message: '+response+'</p>');
