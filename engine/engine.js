@@ -30,7 +30,6 @@ function compareCropWithField(crop,field){
 }
 
 function newFarm(name){
-  db.
 
 }
 
@@ -40,7 +39,7 @@ function connectToDB(){
 
   // Connection URL
   //var url = 'mongodb://ds123351.mlab.com:23351/heroku_s50rzslz';
-  var url = 'mongodb://admin:admin@ds123351.mlab.com:23351/heroku_s50rzslz?authMechanism=DEFAULT&authSource=db&ssl=true"';
+  var url = 'mongodb://admin:admin@ds123351.mlab.com:23351/heroku_s50rzslz';
 
   // Use connect method to connect to the server
   MongoClient.connect(url, function(err, db) {
@@ -49,3 +48,5 @@ function connectToDB(){
   });
   //db.close();
 }
+
+connectToDB()
