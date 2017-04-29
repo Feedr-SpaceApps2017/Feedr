@@ -1,5 +1,6 @@
 exports.predictData = function() {
   var DecisionTree = require('decision-tree');
+  
   var training_data = [
     {"color":"blue", "shape":"square", "liked":false},
     {"color":"red", "shape":"square", "liked":false},
