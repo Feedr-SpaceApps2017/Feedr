@@ -36,3 +36,7 @@ function newFarm(name){
 function addCrop(cropData){
   console.log(cropData);
 }
+
+var exports = module.exports = {
+  addCrop
+};
