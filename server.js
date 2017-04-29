@@ -29,6 +29,14 @@ app.get('/addcrop', function(request, response) {
   response.render('pages/addcrop');
 });
 
+app.get('/cropcheck', function(request, response) {
+  engine.findBestCrop('',db.collection('crops').find().toArray(function(err, docs) {
+    assert.equal(err, null);
+    callback(docs);
+  }));
+  responce.send('Return');
+});
+
 app.post('/addcrop', function(request, response) {
   db.collection('crops').save(request.body)
   response.send('<p>Recived new crop data for :'+request.body.cropname+' </p>');
@@ -91,10 +99,5 @@ app.listen(app.get('port'), function() {
     db = database;
     console.log("Connected successfully to server");
   });
-
-  //engine.findBestCrop('',db.collection('crops').find().toArray(function(err, docs) {
-    //  assert.equal(err, null);
-      //callback(docs);
-    //}));
 
 });
