@@ -28,12 +28,12 @@ app.get('/db', function(request, response) {
 
   	db = database
   	db.collection('test').find().toArray(function(err, results) {
+  		response.send('<p>result: '+results+'</p>');
   		console.log(results)
 		})
 
 	})
-
-	response.send(cool());
+	// response.send(cool());
 });
 
 app.get('/cool', function(request, response) {
