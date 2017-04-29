@@ -1,17 +1,28 @@
 {
   "name": "Feedr",
   "version": "1.0.0",
-  "description": "Lorem ipsum",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+  "description": "Feedr website",
+  "engines": {
+    "node": "6.10.2"
   },
-  "author": "Feedr",
-  "license": "",
-  "repository": "https://github.com/Feedr-SpaceApps2017/Feedr.git",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
-    "express": "^4.15.2",
+    "ejs": "2.5.6",
+    "express": "4.15.2",
     "mongodb": "^2.2.26"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Feedr-SpaceApps2017/Feedr.git"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express",
+    "mongodb"
+  ],
+  "license": "MIT"
 }
