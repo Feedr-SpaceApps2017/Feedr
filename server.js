@@ -3,6 +3,7 @@ const app = express();
 const bodyParser= require('body-parser')
 const cool = require('cool-ascii-faces');
 const engine = require('./feedr_engine/engine.js');
+const ai = require('./machine');
 
 
 app.set('port', (process.env.PORT || 5000));
@@ -67,7 +68,7 @@ app.get('/loc', function(request, response) {
 });
 
 app.get('/ai', function(request, response) {
-	var DecisionTree = require('decision-tree');
+	result = ai.predictData()
 	var training_data = [
   	{"color":"blue", "shape":"square", "liked":false},
   	{"color":"red", "shape":"square", "liked":false},
