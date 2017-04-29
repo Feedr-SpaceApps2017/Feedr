@@ -1,16 +1,9 @@
-<<<<<<< HEAD
-var express = require('express');
-var app = express();
-var cool = require('cool-ascii-faces');
-var engine = require('./feedr_engine/engine.js');
-var bodyParser = require('body-parser');
-=======
 const express = require('express');
 const app = express();
 const bodyParser= require('body-parser')
 const cool = require('cool-ascii-faces');
 const engine = require('./feedr_engine/engine.js');
->>>>>>> origin/master
+
 
 app.set('port', (process.env.PORT || 5000));
 
