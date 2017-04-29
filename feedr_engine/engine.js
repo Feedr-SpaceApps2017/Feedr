@@ -46,14 +46,16 @@ function compareCropWithField(crop,field){
   return {score,issue};
 }
 
-function newFarm(name){
+function findBestCrop(farm){
+  scores = new Array(0);
+  var crops = db.collection('crops').find().toArray(function(err, docs) {
+      assert.equal(err, null);
+      callback(docs);
+    });
 
-}
-
-function addCrop(cropData){
-  console.log(cropData);
+  console.log(crops);
 }
 
 var exports = module.exports = {
-  addCrop
+  findBestCrop('');
 };

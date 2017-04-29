@@ -49,16 +49,10 @@ app.post('/db', (request, response) => {
 })
 
 app.get('/db', function(request, response) {
-  MongoClient.connect('mongodb://admin:admin@ds123351.mlab.com:23351/heroku_s50rzslz', (err, database) => {
-  	if (err) return console.log(err)
-
-  	db = database
   	db.collection('test').find().toArray(function(err, results) {
   		console.log(results)
   		response.render('pages/db', {data: results});
-		})
-
-	})
+		});
 	// response.send(cool());
 });
 
@@ -72,7 +66,6 @@ app.get('/cool', function(request, response) {
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
-
   var assert = require('assert');
 
   // Connection URL
@@ -85,5 +78,7 @@ app.listen(app.get('port'), function() {
     db = database
     console.log("Connected successfully to server");
   });
+
+  findBestCrop();
 
 });
