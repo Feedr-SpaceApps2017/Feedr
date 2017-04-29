@@ -1,5 +1,6 @@
 
 function fitCurve(a,b,c,d, val){
+  ans = 0.0;
   //abs_min, opt_min, opt_max, abs_max in order, value
   if(val>=a&&val<b){
     ans = (1/(Maths.sqrt(2)*(b-a)))*(val-a);
@@ -14,7 +15,7 @@ function fitCurve(a,b,c,d, val){
 }
 
 function compareCropWithField(crop,field){
-  score = 0;
+  var score = 0.0;
   issue = new Array(0);
 
   if (crop.maxtemp<field.maxtemp){
