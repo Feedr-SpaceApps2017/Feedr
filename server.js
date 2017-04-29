@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var cool = require('cool-ascii-faces');
-var engine = require('engine');
+var engine = require('./feedr_engine/engine.js');
 
 app.set('port', (process.env.PORT || 5000));
 
