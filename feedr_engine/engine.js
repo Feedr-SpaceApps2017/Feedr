@@ -17,14 +17,14 @@ function compareCropWithField(crop,field){
   score = 0;
   issue = new Array(0);
 
-  if (crop.maxph<field.maxph){
+  if (crop.maxtemp<field.maxtemp){
     score-=3;
-    issue.push('highph')
-  } else if (crop.minph>field.minph){
+    issue.push('hightemp')
+  } else if (crop.mintemp>field.mintemp){
     score-=3;
-    issue.push('lowph')
+    issue.push('lowtemp')
   } else {
-    score = fitCurve(crop.minph,crop.optminph,crop.optmaxph,crop.maxph,(field.maxph+field.minph)/2);
+    score = fitCurve(crop.mintemp,crop.optmintemp,crop.optmaxtemp,crop.maxtemp,(field.maxtemp+field.mintemp)/2);
   }
 
   if (crop.maxrain<field.maxrain){
@@ -51,12 +51,17 @@ function compareCropWithField(crop,field){
 }
 
 function findBestCrop(farm,crops){
-  scores = new Array(0);
+  results = new Array(0);
+  //farm dosn't exsist yet so fake it
+  field = {maxtemp:50,mintemp:10,maxrain:60,minrain:20,maxph:8,minph:6};
 
-  
+  for (var crop of crops) {
+    obj = compareCropWithField(crop,field);
+    obj.cropname = crop.cropname;
+   results.push(obj);
+  }
 
-
-  console.log(crops);
+  console.log(results);
 }
 
 var exports = module.exports = {
