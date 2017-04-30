@@ -16,6 +16,7 @@ function addCropToDisplay(crop){
   tbl = d.getElementById("cropList");
   div = d.createElement("div");
   div.className = 'crop';
+  console.log(crop);
   div.innerHTML = '<p>'+crop.cropname + ': '+crop.score + ': ' +crop.issue+'</p>';
   tbl.appendChild(div);
 }
