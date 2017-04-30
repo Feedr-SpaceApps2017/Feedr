@@ -1,5 +1,4 @@
 
-
 function addFarmToDisplay(farmName){
   tbl = d.getElementById("farmTable");
   num = tbl.dataset.num;
@@ -30,6 +29,7 @@ if (selectedFarm == id){
   selectedFarm = id;
   d.getElementById(id).style = "color: #FB8C00;";
 }
+updateRightSide();
 }
 
 function keyUp(event){
@@ -70,7 +70,8 @@ function getFarmList(){
         d.getElementById('farmTable').innerHTML = '<p>Failed to get farm list</p>';
       } else {
         for(var farm in farmslist){
-          addFarmToDisplay(farms.name);
+          addFarmToDisplay(farm.name);
+          updateRightSide();
         }
       }
     }
@@ -85,9 +86,17 @@ function updateRightSide(){
     }
     if(currentfarm == null){
       d.getElementById('farmDataTable').innerHTML = '<p>Select A Farm</p>';
+    } else {
+      temp = '<div class="farmData"><p onclick="fieldClick(\'#\')" id="#">@</p></div>';
+
+      d.getElementById('farmDataTable').innerHTML = temp.replace(/#/g, 'Min Temperature').replace(/@/g,farm.mintemp);
+      d.getElementById('farmDataTable').innerHTML = temp.replace(/#/g, 'Max Temperature').replace(/@/g,farm.maxtemp);
+      d.getElementById('farmDataTable').innerHTML = temp.replace(/#/g, 'Min Rainfall').replace(/@/g,farm.minrain);
+      d.getElementById('farmDataTable').innerHTML = temp.replace(/#/g, 'Max Temperature').replace(/@/g,farm.maxrain);
+      d.getElementById('farmDataTable').innerHTML = temp.replace(/#/g, 'Min Ph').replace(/@/g,farm.minph);
+      d.getElementById('farmDataTable').innerHTML = temp.replace(/#/g, 'Max ph').replace(/@/g,farm.maxph);
+
     }
-
-
   }
 }
 
