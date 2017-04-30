@@ -59,22 +59,21 @@ function keyPress(e){
 
 function getFarmList(){
 
-  xmlhttp = new XMLHttpRequest();
-   xmlhttp.open("GET","/getfarmlist", true);
-   xmlhttp.onreadystatechange=function(){
-         if (xmlhttp.readyState==4 && xmlhttp.status==200){
-           farmlist = xmlhttp.responseText;
+  $.ajax({
+    url: "/getfarmlist",
+    success: function( result ) {
+      farmlist = result;
 
-           if(farmslist == null){
-             d.getElementById('farmTable').innerHTML = '<p>Failed to get farm list</p>';
-           } else {
+      if(farmslist == null){
+        d.getElementById('farmTable').innerHTML = '<p>Failed to get farm list</p>';
+      } else {
 
-           for(var farm in farmslist){
-             addFarmToDisplay(farm.name);
-           }
-         }
-   }
-   xmlhttp.send();
+      for(var farm in farmslist){
+        addFarmToDisplay(farm.name);
+      }
+    }
+    }
+  });
 }
 
 window.onload = function(){
