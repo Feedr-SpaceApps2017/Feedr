@@ -46,15 +46,14 @@ app.get('/cropcheck', function(request, response) {
 //   db.collection('crops').find().toArray(function(err, data) {
 //     response.send(engine.findBestCrop(request.body,data));
 //   });
-// });
+// }h);
 
-// DEBUG
-// app.get('/getfarmlist', function(request, response) {
-//   //This is throwing errors for some reason
-//    db.collection('farms').find().toArray(function(err, data) {
-//       response.send(data);
-//   });
-// });
+app.get('/getfarmlist', function(request, response) {
+  //This is throwing errors for some reason
+   db.collection('farms').find().toArray(function(err, data) {
+      response.send(data);
+  });
+});
 
 app.post('/addcrop', function(request, response) {
   db.collection('crops').save(request.body);
