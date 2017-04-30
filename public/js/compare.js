@@ -69,12 +69,13 @@ function getFarmList(){
       if(farmslist == null){
         d.getElementById('farmTable').innerHTML = '<p>Failed to get farm list</p>';
       } else {
-        for(var farm in farmslist){
-          console.log(farmslist);
+        farmslist.forEach(function(farm) {
+
+          // console.log(farmslist);
           console.log(farm);
-          console.log(farm.name);
-          addFarmToDisplay(farm.name);
-        }
+          // console.log(farm.farm.name);
+          // addFarmToDisplay(farm.farm.name);
+        })
         //updateRightSide();
       }
     }
