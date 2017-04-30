@@ -11,6 +11,7 @@ function fitCurve(a,b,c,d, val){
   } else{
     ans = 0;
   }
+    console.log('a '+a+' b '+b+' ans: '+ans);
   return ans;
 }
 
@@ -50,11 +51,9 @@ function findBestCrop(field,crops){
   results = new Array(0);
   //farm dosn't exsist yet so fake it
   //field = {maxtemp:42,mintemp:15,maxrain:1048.6,minrain:1048.6,maxph:6.8,minph:6.8};
-  console.log(field);
   for (var crop of crops) {
     obj = compareCropWithField(crop,field);
     obj.cropname = crop.cropname;
-    console.log(obj);
     results.push(obj);
   }
 
