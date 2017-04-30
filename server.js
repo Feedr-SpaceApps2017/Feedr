@@ -41,8 +41,8 @@ app.get('/cropcheck', function(request, response) {
     responce.send('Field not specified');
   }
   db.collection('crops').find().toArray(function(err, data) {
-    console.log(request.IncomingMessage.quary);
-    response.send(engine.findBestCrop(request.IncomingMessage.query,data));
+    console.log(request.quary);
+    response.send(engine.findBestCrop(request._readableState.query,data));
   });
 });
 
