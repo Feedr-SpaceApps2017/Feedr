@@ -45,7 +45,7 @@ app.post('/addcrop', function(request, response) {
   response.send('<p>Recived new crop data for :'+request.body.cropname+' </p>');
 });
 
-app.post('/gettodo', function(request, response) {
+app.get('/gettodo', function(request, response) {
   response.send('Temp TODO');
 });
 
