@@ -84,7 +84,10 @@ function getFarmList(){
 
 function updateRightSide(){
   var currentfarm;
-  if(selectedFarm=='')return;
+  if(selectedFarm==''){
+    d.getElementById('farmDataTable').innerHTML = '<p>Select A Farm</p>';
+    return;
+  }
   farmslist.forEach(function(farm) {
     if(farm.name==d.getElementById(selectedFarm).innerHTML){
       currentfarm = farm;
@@ -93,7 +96,7 @@ function updateRightSide(){
     if(currentfarm == null){
       d.getElementById('farmDataTable').innerHTML = '<p>Select A Farm</p>';
     } else {
-
+      d.getElementById('farmDataTable').innerHTML = '';
       addData('mintemp','Min Temperature: '+currentfarm.mintemp);
       addData('maxtemp','Max Temperature: '+currentfarm.maxtemp);
       addData('minrain','Min Rainfall: '+currentfarm.minrain);
