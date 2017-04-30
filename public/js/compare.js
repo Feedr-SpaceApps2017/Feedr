@@ -68,9 +68,10 @@ function getFarmList(){
         d.getElementById('farmTable').innerHTML = '<p>Failed to get farm list</p>';
       } else {
 
-      for(var farm in farmslist){
-        addFarmToDisplay(farm.name);
-      }
+        addFarmToDisplay(farmlist[0].name);
+    //  for(var farm in farmslist){
+      //  addFarmToDisplay(farm.name);
+      //}
     }
     }
   });
