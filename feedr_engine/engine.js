@@ -1,5 +1,10 @@
 
 function fitCurve(a,b,c,d,val){
+  a=parseFloat(a);
+  b=parseFloat(b);
+  c=parseFloat(c);
+  d=parseFloat(d);
+  val=parseFloat(val);
   ans = 0.0;
   //abs_min, opt_min, opt_max, abs_max in order, value
   if(val>=a&&val<b){
@@ -51,7 +56,7 @@ function compareCropWithField(crop,field){
 function findBestCrop(field,crops){
   results = new Array(0);
   //farm dosn't exsist yet so fake it
-  field = {maxtemp:42,mintemp:15,maxrain:1048.6,minrain:1048.6,maxph:6.8,minph:6.8};
+  //field = {maxtemp:42,mintemp:15,maxrain:1048.6,minrain:1048.6,maxph:6.8,minph:6.8};
   for (var crop of crops) {
     obj = compareCropWithField(crop,field);
     obj.cropname = crop.cropname;
