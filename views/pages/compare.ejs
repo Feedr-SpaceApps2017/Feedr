@@ -2,6 +2,7 @@
 <html>
 <head>
     <% include ../partials/header.ejs %>
+    <script src="../js/compare.js"></script>
 </head>
 
 <body>
@@ -9,36 +10,12 @@
     <% include ../partials/nav.ejs %>
 
 <div class="container">
-    <h1>Add new crop</h1>
-    <form action="/addcrop" method="post">
-            <fieldset>
-                <label>Check crops against farm</label>
-
-                 <label>Minimum Temperature</label>
-                <input type="number" name="mintemp" placeholder="" />
-
-                 <label>Maximum Temperature</label>
-                <input type="number" name="maxtemp" placeholder="" />
-
-                <p></p>
-
-                 <label>Minimum Rainfall</label>
-                <input type="number" name="minrain" placeholder="" />
-
-                 <label>Maximum Rainfall</label>
-                <input type="number" name="maxrain" placeholder="" />
-
-                <p></p>
-
-                <label>Minimum ph</label>
-               <input type="number" name="minph" placeholder="" />
-
-                <label>Maximum ph</label>
-               <input type="number" name="maxph" placeholder="" />
-
-                <input type="submit" value="Submit" />
-            </fieldset>
-        </form>
+    <div style='float:left;'>
+      <p>left</p>
+    <div>
+    <div style='float:right;'>
+      <p>right</p>
+    </div>
 </div>
 </body>
 </html>
