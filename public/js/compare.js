@@ -19,7 +19,7 @@ function addCropToDisplay(crop){
   tbl.dataset.num = num;
   div = d.createElement("div");
   div.className = 'farm';
-  div.innerHTML = '<p>'+crop.cropname + ': '+crop.score + ': ' crop.issue'</p>';
+  div.innerHTML = '<p>'+crop.cropname + ': '+crop.score + ': ' +crop.issue+'</p>';
   tbl.appendChild(div);
 }
 
