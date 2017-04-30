@@ -46,7 +46,7 @@ app.get('/cropcheck', function(request, response) {
 app.get('/getfarmlist', function(request, response) {
   //This is throwing errors for some reason
   db.collection('farms').find().toArray(function(err, data) {
-      response.send(JSON.stringify(data));
+      response.send(data);
   });
 });
 
