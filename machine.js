@@ -197,7 +197,7 @@ exports.predictData = function(maxtemp,mintemp,maxrain,minrain,maxph,minph) {
   
   var predicted_class = dt.predict({
     // maxtemp:maxtemp,mintemp:mintemp,maxrain:maxrain,minrain:minrain,maxph:maxph,minph:minph
-    maxtemp:50,mintemp:10,maxrain:60,minrain:20,maxph:8,minph:6
+    maxtemp:42,mintemp:15,maxrain:1048.6,minrain:1048.6,maxph:6.8,minph:6.8
   });
   console.log(predicted_class)
   

@@ -4,7 +4,6 @@ Maths = Math;
 const express = require('express');
 const app = express();
 const bodyParser= require('body-parser')
-const cool = require('cool-ascii-faces');
 const engine = require('./feedr_engine/engine.js');
 const ai = require('./machine');
 
@@ -28,6 +27,10 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
+app.get('/compare', function(request, response) {
+  response.render('pages/compare');
+});
+
 app.get('/addcrop', function(request, response) {
   response.render('pages/addcrop');
 });
@@ -45,9 +48,8 @@ app.post('/addcrop', function(request, response) {
   response.send('<p>Recived new crop data for :'+request.body.cropname+' </p>');
 });
 
-app.get('/input', function(request, response) {
-  //redirect input here
-  response.send('<p>Was sent message: '+response+'</p>');
+app.get('/gettodo', function(request, response) {
+  response.send('Temp TODO');
 });
 
 app.post('/db', (request, response) => {
@@ -71,7 +73,6 @@ app.get('/db', function(request, response) {
 		});
 
 	})
-	// response.send(cool());
 });
 
 app.get('/loc', function(request, response) {
@@ -81,10 +82,6 @@ app.get('/loc', function(request, response) {
 app.get('/ai', function(request, response) {
 	let result = ai.predictData()
  	response.render('pages/ai', {data: result});
-});
-
-app.get('/cool', function(request, response) {
-  response.send(cool());
 });
 
 app.listen(app.get('port'), function() {
