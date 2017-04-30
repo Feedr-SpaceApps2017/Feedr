@@ -19,7 +19,7 @@ function fieldClick(id){
 		z.parentNode.removeChild(z);
 		/* d.getElementById("ingTable").dataset.num--; TODO just dropping this by one causes problems */
 	} else if (activeId == id){
-		d.getElementById(activeId).style = "color: lightGrey;";
+		d.getElementById(activeId).style = "color: black;";
 		activeId = '';
 	} else {
 		if (activeId != '' && d.getElementById(activeId) != null){
@@ -60,7 +60,7 @@ function keyPress(e){
 function getFarmList(){
 
   xmlhttp = new XMLHttpRequest();
-   xmlhttp.open("GET","http://feedr-spaceapps.herokuapp.com/getfarms", true);
+   xmlhttp.open("GET","http://feedr-spaceapps.herokuapp.com/getfarmlist", true);
    xmlhttp.onreadystatechange=function(){
          if (xmlhttp.readyState==4 && xmlhttp.status==200){
            return xmlhttp.responseText;
@@ -73,6 +73,9 @@ window.onload = function(){
     d = document;
 	  activeId = '';
     farmslist = getFarmList();
+    if(farmslist == null){
+      d.getElementById('farmTable').innerHTML = '<p>Failed to get farm list</p>';
+    } else {
 
     for(var farm in farmslist){
       addFarmToDisplay(farm.name);
@@ -80,4 +83,5 @@ window.onload = function(){
 
     d.onkeyup = function(e) {keyUp(e)};
     d.onkeypress = function(e) {keyPress(e)};
+  }
 }
