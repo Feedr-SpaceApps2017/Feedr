@@ -84,5 +84,4 @@ window.onload = function(){
 
     d.onkeyup = function(e) {keyUp(e)};
     d.onkeypress = function(e) {keyPress(e)};
-  }
 }
