@@ -85,11 +85,11 @@ function getFarmList(){
 function updateRightSide(){
   var currentfarm;
   if(selectedFarm=='')return;
-  for(var farm in farmslist){
+  farmslist.forEach(function(farm) {
     if(farm.name==d.getElementById(selectedFarm).innerHTML){
       currentfarm = farm;
     }
-  }
+  })
     if(currentfarm == null){
       d.getElementById('farmDataTable').innerHTML = '<p>Select A Farm</p>';
     } else {
