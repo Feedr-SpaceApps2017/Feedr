@@ -72,7 +72,7 @@ function getFarmList(){
         for(var farm in farmslist){
           addFarmToDisplay(farm.name);
         }
-        updateRightSide();
+        //updateRightSide();
       }
     }
   });
