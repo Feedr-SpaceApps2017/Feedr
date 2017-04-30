@@ -81,7 +81,7 @@ function getFarmList(){
 function updateRightSide(){
   var currentfarm;
   for(var farm in farmslist){
-    if(farm.name==d.getElementById("farm"+selectedFarm).innerHTML){
+    if(selectedfarm!=null&&farm.name==d.getElementById("farm"+selectedFarm).innerHTML){
       currentfarm = farm;
     }
     if(currentfarm == null){
