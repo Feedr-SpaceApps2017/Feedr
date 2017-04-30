@@ -16,5 +16,7 @@ function addFarmToDisplay(){
 window.onload = function(){
     d = document;
 
+    console.log('ifwpejepwf');
+
 
 }
