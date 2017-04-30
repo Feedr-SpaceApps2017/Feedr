@@ -35,14 +35,16 @@ app.get('/addcrop', function(request, response) {
   response.render('pages/addcrop');
 });
 
+/*
 app.get('/cropcheck', function(request, response) {
-  //This is throwing errors for some reason
-  if(request==null){
-    responce.send('Field not specified');
-  }
   db.collection('crops').find().toArray(function(err, data) {
-    console.log(request.quary);
-    response.send(engine.findBestCrop(request._readableState.query,data));
+    response.send(engine.findBestCrop('',query,data));
+  });
+});
+*/
+app.post('/cropcheck', function(request, response) {
+  db.collection('crops').find().toArray(function(err, data) {
+    response.send(engine.findBestCrop(request.body,data));
   });
 });
 

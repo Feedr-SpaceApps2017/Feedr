@@ -91,10 +91,8 @@ function getFarmList(){
 }
 
 function getCropList(farm){
-  $.ajax({
-    url: "/cropcheck",
-    data: farm,
-    success: function( result ) {
+
+  $.post('/cropcheck',farm,  function( result ) {
       croplist = result;
 
       if(croplist == null){
@@ -105,8 +103,8 @@ function getCropList(farm){
           addCropToDisplay(crop);
         })
       }
-    }
-  });
+    });
+
 }
 
 function updateRightSide(){
