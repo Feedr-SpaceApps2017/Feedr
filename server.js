@@ -78,6 +78,21 @@ app.get('/loc', function(request, response) {
  	response.render('pages/loc');
 });
 
+app.get('/py', function(request, response) {
+ 	var PythonShell = require('python-shell');
+
+	var options = {
+	scriptPath: '/home/pi/gpio-admin/MFRC522-python/'
+	};
+	var pyshell = new PythonShell('Read.py',options);
+
+
+	pyshell.on('message', function (message) {
+
+	    console.log(message);
+	});
+});
+
 app.get('/ai', function(request, response) {
 	let result = ai.predictData()
  	response.render('pages/ai', {data: result});
