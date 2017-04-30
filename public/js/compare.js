@@ -110,7 +110,7 @@ function addData(shortName,text){
   temp = '<div class="farmData"><p onclick="fieldClick(\'#\')" id="#">@</p></div>';
   div = d.createElement("div");
   div.className = 'farmData';
-  div.innerHTML = temp.replace(/#/g, shortName,text);
+  div.innerHTML = temp.replace(/#/g, shortName).replace(/@/g, text);
   tbl.appendChild(div);
 }
 
