@@ -1,5 +1,5 @@
 
-function fitCurve(a,b,c,d, val){
+function fitCurve(a,b,c,d,val){
   ans = 0.0;
   //abs_min, opt_min, opt_max, abs_max in order, value
   if(val>=a&&val<b){
@@ -10,6 +10,7 @@ function fitCurve(a,b,c,d, val){
     ans = (1/(Maths.sqrt(2)*(c-d)))*(val-d);
   } else{
     ans = 0;
+      console.log('zeroed');
   }
     console.log('a '+a+' b '+b+' ans: '+ans);
   return ans;
