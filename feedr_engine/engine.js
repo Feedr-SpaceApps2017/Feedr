@@ -55,6 +55,7 @@ function findBestCrop(field,crops){
   for (var crop of crops) {
     obj = compareCropWithField(crop,field);
     obj.cropname = crop.cropname;
+    console.log(obj);
     results.push(obj);
   }
 
