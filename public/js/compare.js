@@ -121,7 +121,7 @@ function updateRightSide(){
       addData('mintemp','Min Temperature: '+currentfarm.mintemp);
       addData('maxtemp','Max Temperature: '+currentfarm.maxtemp);
       addData('minrain','Min Rainfall: '+currentfarm.minrain);
-      addData('maxtemp','Max Temperature: '+currentfarm.maxrain);
+      addData('maxrain','Max Rainfall: '+currentfarm.maxrain);
       addData('minph','Min Ph: '+currentfarm.minph);
       addData('maxph','Max ph: '+currentfarm.maxph);
     }

@@ -24,7 +24,7 @@ const MongoClient = require('mongodb').MongoClient;
 var db;
 
 app.get('/', function(request, response) {
-  response.render('pages/index');
+  response.render('pages/compare');
 });
 
 app.get('/compare', function(request, response) {
