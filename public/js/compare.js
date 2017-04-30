@@ -68,7 +68,7 @@ function getFarmList(){
         d.getElementById('farmTable').innerHTML = '<p>Failed to get farm list</p>';
       } else {
 
-        addFarmToDisplay(farmlist[0].name);
+        addFarmToDisplay(farmslist[0].name);
     //  for(var farm in farmslist){
       //  addFarmToDisplay(farm.name);
       //}
