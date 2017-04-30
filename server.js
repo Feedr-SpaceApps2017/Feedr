@@ -82,13 +82,12 @@ app.get('/py', function(request, response) {
  	var PythonShell = require('python-shell');
 
 	var options = {
-	scriptPath: '/home/pi/gpio-admin/MFRC522-python/'
+	scriptPath: './py/'
 	};
-	var pyshell = new PythonShell('Read.py',options);
+	var pyshell = new PythonShell('server.py',options);
 
 
 	pyshell.on('message', function (message) {
-
 	    console.log(message);
 	});
 });
