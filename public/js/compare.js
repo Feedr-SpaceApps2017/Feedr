@@ -62,7 +62,7 @@ function keyPress(e){
 function getFarmList(){
 
   $.ajax({
-    url: "http://feedr-spaceapps.herokuapp.com/getfarmlist",
+    url: "/getfarmlist",
     success: function( result ) {
       farmslist = result;
 
@@ -71,8 +71,8 @@ function getFarmList(){
       } else {
         for(var farm in farmslist){
           addFarmToDisplay(farm.name);
-          updateRightSide();
         }
+        updateRightSide();
       }
     }
   });
