@@ -59,7 +59,7 @@ function keyPress(e){
 
 window.onload = function(){
     d = document;
-
+	   activeId = '';
     d.onkeyup = function(e) {keyUp(e)};
     d.onkeypress = function(e) {keyPress(e)};
 }
