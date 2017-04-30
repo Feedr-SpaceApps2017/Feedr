@@ -70,6 +70,7 @@ function getFarmList(){
         d.getElementById('farmTable').innerHTML = '<p>Failed to get farm list</p>';
       } else {
         for(var farm in farmslist){
+          console.log(farmslist);
           console.log(farm);
           console.log(farm.name);
           addFarmToDisplay(farm.name);
