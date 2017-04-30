@@ -45,6 +45,10 @@ app.post('/addcrop', function(request, response) {
   response.send('<p>Recived new crop data for :'+request.body.cropname+' </p>');
 });
 
+app.post('/gettodo', function(request, response) {
+  response.send('Temp TODO');
+});
+
 app.get('/input', function(request, response) {
   //redirect input here
   response.send('<p>Was sent message: '+response+'</p>');
