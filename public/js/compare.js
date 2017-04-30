@@ -94,12 +94,12 @@ function updateRightSide(){
       d.getElementById('farmDataTable').innerHTML = '<p>Select A Farm</p>';
     } else {
 
-      addData('mintemp','Min Temperature: '+farm.mintemp);
-      addData('maxtemp','Max Temperature: '+farm.maxtemp);
-      addData('minrain','Min Rainfall: '+farm.minrain);
-      addData('maxtemp','Max Temperature: '+farm.maxrain);
-      addData('minph','Min Ph: '+farm.minph);
-      addData('maxph','Max ph: '+farm.maxph);
+      addData('mintemp','Min Temperature: '+currentfarm.mintemp);
+      addData('maxtemp','Max Temperature: '+currentfarm.maxtemp);
+      addData('minrain','Min Rainfall: '+currentfarm.minrain);
+      addData('maxtemp','Max Temperature: '+currentfarm.maxrain);
+      addData('minph','Min Ph: '+currentfarm.minph);
+      addData('maxph','Max ph: '+currentfarm.maxph);
 
     }
 
