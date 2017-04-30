@@ -1,13 +1,13 @@
 
 
-function addFarmToDisplay(){
+function addFarmToDisplay(farmName){
 	tbl = d.getElementById("farmTable");
 	num = tbl.dataset.num;
 	num++;
 	tbl.dataset.num = num;
 	div = d.createElement("div");
 	div.className = 'farm';
-	inner = '<p onclick="fieldClick(\'farm#\')" id="farm#">Name</p> <div class="farmNo"><p onclick="fieldClick(\'idNo#\')" id="idNo#">Amnt</p></div>';
+	inner = '<p onclick="fieldClick(\'farm#\')" id="farm#">'+farmName+'</p></div>';
 	innerE = inner.replace(/#/g, num);
 	div.innerHTML = innerE;
 	tbl.appendChild(div);
@@ -23,7 +23,7 @@ function fieldClick(id){
 		activeId = '';
 	} else {
 		if (activeId != '' && d.getElementById(activeId) != null){
-			d.getElementById(activeId).style = "color: lightGrey;";
+			d.getElementById(activeId).style = "color: black;";
 		}
 		activeId = id;
 		d.getElementById(id).style = "color: #FB8C00;";
@@ -57,9 +57,25 @@ function keyPress(e){
 	}
 }
 
+function getFarmList(){
+  $.ajax({
+                url: 'http://feedr-spaceapps.herokuapp.com/getfarms',
+                dataType: 'json',
+                success: function(json) {
+                  farmslist = json;
+          });
+}
+
 window.onload = function(){
     d = document;
-	   activeId = '';
+	  activeId = '';
+    farmslist;
+    getFarmList();
+
+    for(var farm in farmslist){
+      addFarmToDisplay(farm.name);
+    }
+
     d.onkeyup = function(e) {keyUp(e)};
     d.onkeypress = function(e) {keyPress(e)};
 }
