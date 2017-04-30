@@ -44,6 +44,7 @@ app.get('/cropcheck', function(request, response) {
 */
 app.post('/cropcheck', function(request, response) {
   db.collection('crops').find().toArray(function(err, data) {
+    console.log(request.body);
     response.send(engine.findBestCrop(request.body,data));
   });
 });
@@ -56,7 +57,7 @@ app.get('/getfarmlist', function(request, response) {
 });
 
 app.post('/addcrop', function(request, response) {
-  db.collection('crops').save(request.body)
+  db.collection('crops').save(request.body);
   response.send('<p>Recived new crop data for :'+request.body.cropname+' </p>');
 });
 
