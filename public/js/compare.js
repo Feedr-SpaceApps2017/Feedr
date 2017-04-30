@@ -12,6 +12,19 @@ function addFarmToDisplay(farmName){
   tbl.appendChild(div);
 }
 
+function addCropToDisplay(crop){
+  tbl = d.getElementById("cropList");
+  num = tbl.dataset.num;
+  num++;
+  tbl.dataset.num = num;
+  div = d.createElement("div");
+  div.className = 'farm';
+  inner = '<p>'+crop.cropname + ': '+crop.score + : crop.issue'</p></div>';
+  innerE = inner.replace(/#/g, num);
+  div.innerHTML = innerE;
+  tbl.appendChild(div);
+}
+
 function fieldClick(id){
   /* if (d.getElementById(id).innerHTML == 'remove_circle_outline'){
   z = d.getElementById(id).parentNode;
@@ -60,7 +73,6 @@ function keyPress(e){
 }
 
 function getFarmList(){
-
   $.ajax({
     url: "/getfarmlist",
     success: function( result ) {
@@ -77,6 +89,27 @@ function getFarmList(){
           addFarmToDisplay(farm.name);
         })
         updateRightSide();
+      }
+    }
+  });
+}
+
+function getCropList(farm){
+  $.ajax({
+    url: "/cropcheck?"+farm,
+    success: function( result ) {
+      croplist = result;
+
+      if(croplist == null){
+        d.getElementById('cropList').innerHTML = '<p>Failed to get crop list</p>';
+      } else {
+        croplist.forEach(function(crop) {
+
+          // console.log(farmslist);
+          //console.log(farm);
+          // console.log(farm.farm.name);
+          addCropToDisplay(crop.name);
+        })
       }
     }
   });
@@ -103,9 +136,7 @@ function updateRightSide(){
       addData('maxtemp','Max Temperature: '+currentfarm.maxrain);
       addData('minph','Min Ph: '+currentfarm.minph);
       addData('maxph','Max ph: '+currentfarm.maxph);
-
     }
-
 }
 
 function addData(shortName,text){

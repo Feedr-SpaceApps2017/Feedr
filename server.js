@@ -37,15 +37,17 @@ app.get('/addcrop', function(request, response) {
 
 app.get('/cropcheck', function(request, response) {
   //This is throwing errors for some reason
+  if(request==null){
+    responce.send('Field not specified');
+  }
   db.collection('crops').find().toArray(function(err, data) {
-    engine.findBestCrop('',data);
+    response.send(engine.findBestCrop(request,data));
   });
-  response.send('Return');
 });
 
 app.get('/getfarmlist', function(request, response) {
   //This is throwing errors for some reason
-  db.collection('farms').find().toArray(function(err, data) {
+   else if db.collection('farms').find().toArray(function(err, data) {
       response.send(data);
   });
 });
