@@ -42,8 +42,10 @@ function compareCropWithField(crop,field){
     score += fitCurve(crop.minph,crop.optminph,crop.optmaxph,crop.maxph,(field.maxph+field.minph)/2);
   }
 
-  score = score/3;
+  console.log('score: b:'+score);
 
+  score = score/3;
+console.log('score a:' +score);
   return {score:score,issue:issue};
 }
 

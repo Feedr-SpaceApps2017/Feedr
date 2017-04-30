@@ -66,7 +66,6 @@ app.get('/gettodo', function(request, response) {
 });
 
 app.post('/db', (request, response) => {
-  console.log(request.body)
   db.collection('test').save(request.body, (err, result) => {
     if (err) return console.log(err)
 
@@ -81,7 +80,6 @@ app.get('/db', function(request, response) {
 
   	db = database
   	db.collection('test').find().toArray(function(err, results) {
-  		console.log(results)
   		response.render('pages/db', {data: results});
 		});
 
