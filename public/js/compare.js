@@ -79,9 +79,9 @@ function getFarmList(){
 }
 
 function updateRightSide(){
-  var currentfarm = {};
+  var currentfarm;
   for(var farm in farmslist){
-    if(farm.name==selectedFarm){
+    if(farm.name==d.getElementById("farm"+selectedFarm).innerHTML){
       currentfarm = farm;
     }
     if(currentfarm == null){
@@ -89,12 +89,12 @@ function updateRightSide(){
     } else {
       temp = '<div class="farmData"><p onclick="fieldClick(\'#\')" id="#">@</p></div>';
 
-      d.getElementById('farmDataTable').innerHTML = temp.replace(/#/g, 'Min Temperature').replace(/@/g,farm.mintemp);
-      d.getElementById('farmDataTable').innerHTML = temp.replace(/#/g, 'Max Temperature').replace(/@/g,farm.maxtemp);
-      d.getElementById('farmDataTable').innerHTML = temp.replace(/#/g, 'Min Rainfall').replace(/@/g,farm.minrain);
-      d.getElementById('farmDataTable').innerHTML = temp.replace(/#/g, 'Max Temperature').replace(/@/g,farm.maxrain);
-      d.getElementById('farmDataTable').innerHTML = temp.replace(/#/g, 'Min Ph').replace(/@/g,farm.minph);
-      d.getElementById('farmDataTable').innerHTML = temp.replace(/#/g, 'Max ph').replace(/@/g,farm.maxph);
+      d.getElementById('farmDataTable').innerHTML = temp.replace(/#/g, 'mintemp').replace(/@/g,'Min Temperature: '+farm.mintemp);
+      d.getElementById('farmDataTable').innerHTML = temp.replace(/#/g, 'maxtemp').replace(/@/g,'Max Temperature: '+farm.maxtemp);
+      d.getElementById('farmDataTable').innerHTML = temp.replace(/#/g, 'minrain').replace(/@/g,'Min Rainfall: '+farm.minrain);
+      d.getElementById('farmDataTable').innerHTML = temp.replace(/#/g, 'maxtemp').replace(/@/g,'Max Temperature: '+farm.maxrain);
+      d.getElementById('farmDataTable').innerHTML = temp.replace(/#/g, 'minph').replace(/@/g,'Min Ph: '+farm.minph);
+      d.getElementById('farmDataTable').innerHTML = temp.replace(/#/g, 'maxph').replace(/@/g,'Max ph: '+farm.maxph);
 
     }
   }
