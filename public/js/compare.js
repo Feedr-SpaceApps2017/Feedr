@@ -132,7 +132,7 @@ function updateRightSide(){
       addData('minph','Min Ph: '+currentfarm.minph);
       addData('maxph','Max ph: '+currentfarm.maxph);
     }
-    getCropList(farm);
+    getCropList(currentfarm);
 }
 
 function addData(shortName,text){
