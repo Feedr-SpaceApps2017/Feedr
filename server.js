@@ -44,7 +44,6 @@ app.get('/cropcheck', function(request, response) {
 */
 app.post('/cropcheck', function(request, response) {
   db.collection('crops').find().toArray(function(err, data) {
-    console.log(request.body);
     response.send(engine.findBestCrop(request.body,data));
   });
 });
