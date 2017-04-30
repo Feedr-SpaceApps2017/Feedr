@@ -60,7 +60,7 @@ function keyPress(e){
 function getFarmList(){
 
   xmlhttp = new XMLHttpRequest();
-   xmlhttp.open("GET","http://feedr-spaceapps.herokuapp.com/getfarmlist", true);
+   xmlhttp.open("GET","/getfarmlist", true);
    xmlhttp.onreadystatechange=function(){
          if (xmlhttp.readyState==4 && xmlhttp.status==200){
            farmlist = xmlhttp.responseText;
