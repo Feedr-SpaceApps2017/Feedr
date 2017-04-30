@@ -76,7 +76,7 @@ function getFarmList(){
           // console.log(farm.farm.name);
           addFarmToDisplay(farm.name);
         })
-        //updateRightSide();
+        updateRightSide();
       }
     }
   });
