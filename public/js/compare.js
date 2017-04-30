@@ -14,11 +14,8 @@ function addFarmToDisplay(farmName){
 
 function addCropToDisplay(crop){
   tbl = d.getElementById("cropList");
-  num = tbl.dataset.num;
-  num++;
-  tbl.dataset.num = num;
   div = d.createElement("div");
-  div.className = 'farm';
+  div.className = 'crop';
   div.innerHTML = '<p>'+crop.cropname + ': '+crop.score + ': ' +crop.issue+'</p>';
   tbl.appendChild(div);
 }
@@ -102,9 +99,9 @@ function getCropList(farm){
       if(croplist == null){
         d.getElementById('cropList').innerHTML = '<p>Failed to get crop list</p>';
       } else {
-        tbl = d.getElementById("farmTable").innerHTML='';
+        tbl = d.getElementById("cropList").innerHTML='';
         croplist.forEach(function(crop) {
-          addCropToDisplay(crop.name);
+          addCropToDisplay(crop);
         })
       }
     }
