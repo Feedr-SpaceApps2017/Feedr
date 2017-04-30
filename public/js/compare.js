@@ -62,7 +62,7 @@ function keyPress(e){
 function getFarmList(){
 
   $.ajax({
-    url: "/getfarmlist",
+    url: "http://feedr-spaceapps.herokuapp.com/getfarmlist",
     success: function( result ) {
       farmslist = result;
 
@@ -80,10 +80,12 @@ function getFarmList(){
 
 function updateRightSide(){
   var currentfarm;
+  if(selectedFarm==null)return;
   for(var farm in farmslist){
-    if(selectedFarm!=null&&farm.name==d.getElementById("farm"+selectedFarm).innerHTML){
+    if(farm.name==d.getElementById("farm"+selectedFarm).innerHTML){
       currentfarm = farm;
     }
+  }
     if(currentfarm == null){
       d.getElementById('farmDataTable').innerHTML = '<p>Select A Farm</p>';
     } else {
@@ -96,7 +98,7 @@ function updateRightSide(){
       addData('maxph','Max ph: '+farm.maxph);
 
     }
-  }
+
 }
 
 function addData(shortName,text){
