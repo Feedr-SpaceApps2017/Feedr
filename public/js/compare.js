@@ -94,7 +94,8 @@ function getFarmList(){
 
 function getCropList(farm){
   $.ajax({
-    url: "/cropcheck?"+farm,
+    url: "/cropcheck",
+    data: farm,
     success: function( result ) {
       croplist = result;
 
