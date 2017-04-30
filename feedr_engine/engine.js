@@ -44,7 +44,7 @@ function compareCropWithField(crop,field){
 
   score = score/3;
 
-  return {score,issue};
+  return {score:score,issue:issue};
 }
 
 function findBestCrop(field,crops){
