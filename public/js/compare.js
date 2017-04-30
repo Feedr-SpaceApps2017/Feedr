@@ -72,9 +72,9 @@ function getFarmList(){
         farmslist.forEach(function(farm) {
 
           // console.log(farmslist);
-          console.log(farm);
+          //console.log(farm);
           // console.log(farm.farm.name);
-          // addFarmToDisplay(farm.farm.name);
+          addFarmToDisplay(farm.name);
         })
         //updateRightSide();
       }
