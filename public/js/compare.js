@@ -14,18 +14,20 @@ function addFarmToDisplay(farmName){
 }
 
 function fieldClick(id){
-	 if (d.getElementById(id).innerHTML == 'remove_circle_outline'){
+	/* if (d.getElementById(id).innerHTML == 'remove_circle_outline'){
 		z = d.getElementById(id).parentNode;
 		z.parentNode.removeChild(z);
-		/* d.getElementById("ingTable").dataset.num--; TODO just dropping this by one causes problems */
-	} else if (activeId == id){
-		d.getElementById(activeId).style = "color: black;";
-		activeId = '';
+		// d.getElementById("ingTable").dataset.num--; TODO just dropping this by one causes problems
+	} else*/
+
+   if (selectedFarm == id){
+		d.getElementById(selectedFarm).style = "color: black;";
+		selectedFarm = '';
 	} else {
-		if (activeId != '' && d.getElementById(activeId) != null){
-			d.getElementById(activeId).style = "color: black;";
+		if (selectedFarm != '' && d.getElementById(selectedFarm) != null){
+			d.getElementById(selectedFarm).style = "color: black;";
 		}
-		activeId = id;
+		selectedFarm = id;
 		d.getElementById(id).style = "color: #FB8C00;";
 	}
 }
@@ -67,19 +69,32 @@ function getFarmList(){
       if(farmslist == null){
         d.getElementById('farmTable').innerHTML = '<p>Failed to get farm list</p>';
       } else {
-
-        addFarmToDisplay(farmslist[0].name);
-    //  for(var farm in farmslist){
-      //  addFarmToDisplay(farm.name);
-      //}
+        for(var farm in farmslist){
+        addFarmToDisplay(farms.name);
+      }
     }
     }
   });
 }
 
+function updateRightSide(){
+  var currentfarm = {};
+  for(var farm in farmslist){
+   if(farm.name==selectedFarm){
+    currentfarm = farm;
+  }
+  if(currentfarm == null){
+    d.getElementById('right').innerHTML = '<p>Select A Farm</p>';
+  }
+
+
+
+}
+
 window.onload = function(){
     d = document;
 	  activeId = '';
+    selectedFarm = '';
     farmlist = [];
     getFarmList();
 
