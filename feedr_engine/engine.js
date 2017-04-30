@@ -49,7 +49,7 @@ function compareCropWithField(crop,field){
 function findBestCrop(field,crops){
   results = new Array(0);
   //field = {maxtemp:42,mintemp:15,maxrain:1048.6,minrain:1048.6,maxph:6.8,minph:6.8};
-  console.log(field);
+  console.log(field.maxtemp);
   for (var crop of crops) {
     obj = compareCropWithField(crop,field);
     obj.cropname = crop.cropname;
