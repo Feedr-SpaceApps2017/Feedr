@@ -42,53 +42,57 @@ app.get('/cropcheck', function(request, response) {
   });
 });
 */
-app.post('/cropcheck', function(request, response) {
-  db.collection('crops').find().toArray(function(err, data) {
-    response.send(engine.findBestCrop(request.body,data));
-  });
-});
+// app.post('/cropcheck', function(request, response) {
+//   db.collection('crops').find().toArray(function(err, data) {
+//     response.send(engine.findBestCrop(request.body,data));
+//   });
+// });
 
-app.get('/getfarmlist', function(request, response) {
-  //This is throwing errors for some reason
-   db.collection('farms').find().toArray(function(err, data) {
-      response.send(data);
-  });
-});
+// DEBUG
+// app.get('/getfarmlist', function(request, response) {
+//   //This is throwing errors for some reason
+//    db.collection('farms').find().toArray(function(err, data) {
+//       response.send(data);
+//   });
+// });
 
 app.post('/addcrop', function(request, response) {
   db.collection('crops').save(request.body);
   response.send('<p>Recived new crop data for :'+request.body.cropname+' </p>');
 });
 
-app.get('/gettodo', function(request, response) {
-  response.send('Temp TODO');
-});
+// app.get('/gettodo', function(request, response) {
+//   response.send('Temp TODO');
+// });
 
-app.post('/db', (request, response) => {
-  db.collection('test').save(request.body, (err, result) => {
-    if (err) return console.log(err)
+// DEBUG
+// app.post('/db', (request, response) => {
+//   db.collection('test').save(request.body, (err, result) => {
+//     if (err) return console.log(err)
+// 
+//     console.log('saved to database')
+//     response.redirect('/db')
+//   })
+// })
+// 
+// app.get('/db', function(request, response) {
+//   MongoClient.connect('mongodb://admin:admin@ds123351.mlab.com:23351/heroku_s50rzslz', (err, database) => {
+//   	if (err) return console.log(err)
 
-    console.log('saved to database')
-    response.redirect('/db')
-  })
-})
+//   	db = database
+//   	db.collection('test').find().toArray(function(err, results) {
+//   		response.render('pages/db', {data: results});
+// 		});
 
-app.get('/db', function(request, response) {
-  MongoClient.connect('mongodb://admin:admin@ds123351.mlab.com:23351/heroku_s50rzslz', (err, database) => {
-  	if (err) return console.log(err)
+// 	})
+// });
 
-  	db = database
-  	db.collection('test').find().toArray(function(err, results) {
-  		response.render('pages/db', {data: results});
-		});
-
-	})
-});
-
+// DEBUG
 app.get('/loc', function(request, response) {
  	response.render('pages/loc');
 });
 
+// DEBUG
 app.get('/ai', function(request, response) {
 	let result = ai.predictData()
  	response.render('pages/ai', {data: result});
