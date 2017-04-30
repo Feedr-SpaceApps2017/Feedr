@@ -62,7 +62,7 @@ function getFarmList(){
   $.ajax({
     url: "/getfarmlist",
     success: function( result ) {
-      farmlist = result;
+      farmslist = result;
 
       if(farmslist == null){
         d.getElementById('farmTable').innerHTML = '<p>Failed to get farm list</p>';
