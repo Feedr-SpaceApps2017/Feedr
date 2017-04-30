@@ -63,10 +63,7 @@ function getFarmList(){
    xmlhttp.open("GET","http://feedr-spaceapps.herokuapp.com/getfarms", true);
    xmlhttp.onreadystatechange=function(){
          if (xmlhttp.readyState==4 && xmlhttp.status==200){
-           farmslist=xmlhttp.responseText;
-           for(var farm in farmslist){
-             addFarmToDisplay(farm.name);
-           }
+           return xmlhttp.responseText;
          }
    }
    xmlhttp.send();
@@ -75,8 +72,11 @@ function getFarmList(){
 window.onload = function(){
     d = document;
 	  activeId = '';
-    farmslist;
-    getFarmList();
+    farmslist = getFarmList();
+
+    for(var farm in farmslist){
+      addFarmToDisplay(farm.name);
+    }
 
     d.onkeyup = function(e) {keyUp(e)};
     d.onkeypress = function(e) {keyPress(e)};
