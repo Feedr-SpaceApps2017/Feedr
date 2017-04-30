@@ -1,2 +1,2 @@
 # Feedr
-Test Push
+Lorem Ipsum
