@@ -19,34 +19,30 @@ function compareCropWithField(crop,field){
   issue = new Array(0);
 
   if (crop.maxtemp<field.maxtemp){
-    score-=3;
     issue.push('hightemp')
   } else if (crop.mintemp>field.mintemp){
-    score-=3;
     issue.push('lowtemp')
   } else {
     score += fitCurve(crop.mintemp,crop.optmintemp,crop.optmaxtemp,crop.maxtemp,(field.maxtemp+field.mintemp)/2);
   }
 
   if (crop.maxrain<field.maxrain){
-    score-=3;
     issue.push('highrain')
   } else if (crop.minrain>field.minrain){
-    score-=3;
     issue.push('lowrain')
   } else {
     score += fitCurve(crop.minrain,crop.optminrain,crop.optmaxrain,crop.maxrain,(field.maxrain+field.minrain)/2);
   }
 
   if (crop.maxph<field.maxph){
-    score-=3;
     issue.push('highph')
   } else if (crop.minph>field.minph){
-    score-=3;
     issue.push('lowph')
   } else {
     score += fitCurve(crop.minph,crop.optminph,crop.optmaxph,crop.maxph,(field.maxph+field.minph)/2);
   }
+
+  score = score/3;
 
   return {score,issue};
 }
